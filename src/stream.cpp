@@ -262,7 +262,7 @@ char Stream::get() {
   AdvanceCurrent();
   m_mark.column++;
 
-  if (ch == '\n') {
+  if (ch == '\n' || (ch == '\r' && peek() != '\n')) {
     m_mark.column = 0;
     m_mark.line++;
   }
